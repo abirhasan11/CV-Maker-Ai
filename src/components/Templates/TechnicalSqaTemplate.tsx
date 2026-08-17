@@ -104,7 +104,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {personalInfo.summary && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -124,7 +124,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {skills && skills.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -149,7 +149,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {((manualWorks && manualWorks.length > 0) || (automationWorks && automationWorks.length > 0) || (projects && projects.length > 0)) && (
         <div className="space-y-2.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -163,7 +163,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
           {/* Manual Testing */}
           {manualWorks && manualWorks.length > 0 && (
             <div className="space-y-1.5 pl-1">
-              <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-0.5">
+              <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wide">
                 Manual Testing
               </div>
               <div className="space-y-1.5 text-xs">
@@ -175,7 +175,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
                       {item.link && (
                         <div className="text-[11px] text-slate-600 pl-3 font-mono">
                           <span>Link: </span>
-                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 underline">
+                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
                             {item.link}
                           </a>
                         </div>
@@ -190,7 +190,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
           {/* Automation Testing */}
           {automationWorks && automationWorks.length > 0 && (
             <div className="space-y-1.5 pl-1 pt-1">
-              <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-0.5">
+              <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wide">
                 Automation Testing
               </div>
               <div className="space-y-1.5 text-xs">
@@ -202,7 +202,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
                       {item.link && (
                         <div className="text-[11px] text-slate-600 pl-3 font-mono">
                           <span>Link: </span>
-                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 underline">
+                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
                             {item.link}
                           </a>
                         </div>
@@ -222,7 +222,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
                   <div className="flex justify-between items-baseline">
                     <span className="font-bold text-slate-900">{proj.name}</span>
                     {proj.link && (
-                      <a href={proj.link.startsWith('http') ? proj.link : `https://${proj.link}`} target="_blank" rel="noreferrer" className="text-blue-600 underline font-mono text-[11px]">
+                      <a href={proj.link.startsWith('http') ? proj.link : `https://${proj.link}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-mono text-[11px]">
                         {proj.link}
                       </a>
                     )}
@@ -239,7 +239,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {education && education.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -270,7 +270,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {experiences && experiences.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -309,7 +309,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {trainings && trainings.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -327,7 +327,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
                 {item.linkUrl && (
                   <div className="text-slate-600 pl-3 font-mono text-[11px]">
                     <span>• {item.linkText || 'Fb Link:'} </span>
-                    <a href={item.linkUrl.startsWith('http') ? item.linkUrl : `https://${item.linkUrl}`} target="_blank" rel="noreferrer" className="text-blue-600 underline">
+                    <a href={item.linkUrl.startsWith('http') ? item.linkUrl : `https://${item.linkUrl}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
                       {item.linkUrl}
                     </a>
                   </div>
@@ -342,7 +342,7 @@ export const TechnicalSqaTemplate: React.FC<TemplateProps> = ({ resume, config }
       {references && references.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 

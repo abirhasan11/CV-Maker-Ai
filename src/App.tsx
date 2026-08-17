@@ -42,6 +42,7 @@ import {
   sampleFresherData, 
   defaultStyleConfig 
 } from './data/samples';
+import { sanitizeResumeData } from './utils/sanitizeResume';
 import { getTranslation } from './data/translations';
 
 // Components
@@ -84,50 +85,7 @@ export default function App() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (
-          parsed?.personalInfo?.jobTitle === "Software Quality Assurance (SQA) Engineer" ||
-          parsed?.personalInfo?.jobTitle === "Software Engineer" ||
-          parsed?.personalInfo?.jobTitle === "Junior SQA Engineer / Fresh Graduate" ||
-          parsed?.personalInfo?.jobTitle === "Lead Software QA Automation Engineer" ||
-          !parsed?.personalInfo?.jobTitle
-        ) {
-          parsed.personalInfo.jobTitle = "Aspiring SQA Professional";
-        }
-        // Removed as requested
-        parsed.extraActivities = [];
-        parsed.languages = [];
-        parsed.interests = [];
-        if (parsed.projects && Array.isArray(parsed.projects)) {
-          parsed.projects = parsed.projects.filter((p: any) => 
-            !p.name?.toLowerCase().includes('enterprise') && 
-            !p.name?.toLowerCase().includes('microservices') &&
-            !p.title?.toLowerCase().includes('enterprise') && 
-            !p.title?.toLowerCase().includes('microservices')
-          );
-        }
-        if (parsed.automationWorks && Array.isArray(parsed.automationWorks)) {
-          parsed.automationWorks = parsed.automationWorks.filter((item: any) =>
-            !item.projectName?.toLowerCase().includes('enterprise') &&
-            !item.projectName?.toLowerCase().includes('microservices') &&
-            !item.category?.toLowerCase().includes('enterprise') &&
-            !item.category?.toLowerCase().includes('microservices') &&
-            !item.title?.toLowerCase().includes('enterprise') &&
-            !item.title?.toLowerCase().includes('microservices')
-          );
-        }
-        if (parsed.certifications && Array.isArray(parsed.certifications)) {
-          parsed.certifications = parsed.certifications.filter((c: any) => 
-            !c.name?.toLowerCase().includes('istqb') &&
-            !c.name?.toLowerCase().includes('postman')
-          );
-        }
-        if (parsed.trainings && Array.isArray(parsed.trainings)) {
-          parsed.trainings = parsed.trainings.filter((t: any) => 
-            !t.courseTitle?.toLowerCase().includes('istqb') &&
-            !t.courseTitle?.toLowerCase().includes('postman')
-          );
-        }
-        return parsed;
+        return sanitizeResumeData(parsed);
       } catch (e) {
         // fallback
       }
@@ -264,7 +222,7 @@ export default function App() {
       try {
         const parsed = JSON.parse(evt.target?.result as string);
         if (parsed && typeof parsed === 'object') {
-          setResume(parsed);
+          setResume(sanitizeResumeData(parsed));
           showNotification('Resume data loaded from JSON!');
         }
       } catch (err) {
@@ -297,7 +255,7 @@ export default function App() {
         throw new Error(data.error || 'Failed to translate resume');
       }
 
-      setResume(data.translatedResume);
+      setResume(sanitizeResumeData(data.translatedResume));
       setLang(targetLanguage);
       showNotification(
         targetLanguage === 'bn'
@@ -326,9 +284,9 @@ export default function App() {
   const handleApplyBullet = (improved: string) => {
     const { expId, bulletIndex } = bulletModalData;
     setResume((prev) => {
-      const nextExp = prev.experiences.map((e) => {
+      const nextExp = (prev.experiences || []).map((e) => {
         if (e.id === expId) {
-          const newBullets = [...e.bullets];
+          const newBullets = [...(e.bullets || [])];
           newBullets[bulletIndex] = improved;
           return { ...e, bullets: newBullets };
         }
@@ -340,15 +298,15 @@ export default function App() {
 
   const sectionsList: { id: FormSection; label: string; icon: React.ReactNode; count?: number }[] = [
     { id: 'personal', label: t.personalInfo, icon: <User className="w-4 h-4" /> },
-    { id: 'skills', label: t.skills, icon: <Wrench className="w-4 h-4" />, count: resume.skills.flatMap(s => s.items).length },
-    { id: 'manualWorks', label: t.manualWorks, icon: <CheckCircle2 className="w-4 h-4" />, count: resume.manualWorks?.length || 0 },
-    { id: 'automationWorks', label: t.automationWorks, icon: <Cpu className="w-4 h-4" />, count: resume.automationWorks?.length || 0 },
-    { id: 'projects', label: t.projects, icon: <FolderGit2 className="w-4 h-4" />, count: resume.projects.length },
-    { id: 'education', label: t.education, icon: <GraduationCap className="w-4 h-4" />, count: resume.education.length },
-    { id: 'experience', label: t.experience, icon: <Briefcase className="w-4 h-4" />, count: resume.experiences.length },
-    { id: 'training', label: t.training, icon: <BookOpen className="w-4 h-4" />, count: resume.trainings?.length || 0 },
-    { id: 'certifications', label: t.certifications, icon: <Award className="w-4 h-4" />, count: resume.certifications.length },
-    { id: 'references', label: t.references, icon: <Users2 className="w-4 h-4" />, count: resume.references?.length || 0 },
+    { id: 'skills', label: t.skills, icon: <Wrench className="w-4 h-4" />, count: (resume.skills || []).flatMap(s => s?.items || []).length },
+    { id: 'manualWorks', label: t.manualWorks, icon: <CheckCircle2 className="w-4 h-4" />, count: (resume.manualWorks || []).length },
+    { id: 'automationWorks', label: t.automationWorks, icon: <Cpu className="w-4 h-4" />, count: (resume.automationWorks || []).length },
+    { id: 'projects', label: t.projects, icon: <FolderGit2 className="w-4 h-4" />, count: (resume.projects || []).length },
+    { id: 'education', label: t.education, icon: <GraduationCap className="w-4 h-4" />, count: (resume.education || []).length },
+    { id: 'experience', label: t.experience, icon: <Briefcase className="w-4 h-4" />, count: (resume.experiences || []).length },
+    { id: 'training', label: t.training, icon: <BookOpen className="w-4 h-4" />, count: (resume.trainings || []).length },
+    { id: 'certifications', label: t.certifications, icon: <Award className="w-4 h-4" />, count: (resume.certifications || []).length },
+    { id: 'references', label: t.references, icon: <Users2 className="w-4 h-4" />, count: (resume.references || []).length },
   ];
 
   return (

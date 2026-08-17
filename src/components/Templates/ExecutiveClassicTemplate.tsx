@@ -110,7 +110,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {personalInfo.summary && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -130,7 +130,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {skills && skills.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -155,7 +155,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {((manualWorks && manualWorks.length > 0) || (automationWorks && automationWorks.length > 0) || (projects && projects.length > 0)) && (
         <div className="space-y-2.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -169,7 +169,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
           {/* Manual Testing */}
           {manualWorks && manualWorks.length > 0 && (
             <div className="space-y-1.5 px-1">
-              <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wide border-b border-slate-200 pb-0.5">
+              <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wide">
                 Manual Testing
               </div>
               <div className="space-y-1.5 text-xs">
@@ -185,7 +185,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
                             href={item.link.startsWith('http') ? item.link : `https://${item.link}`} 
                             target="_blank" 
                             rel="noreferrer"
-                            className="text-blue-600 underline font-mono"
+                            className="text-blue-600 hover:underline font-mono"
                           >
                             {item.link}
                           </a>
@@ -201,7 +201,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
           {/* Automation Testing */}
           {automationWorks && automationWorks.length > 0 && (
             <div className="space-y-1.5 px-1">
-              <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wide border-b border-slate-200 pb-0.5">
+              <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wide">
                 Automation Testing
               </div>
               <div className="space-y-1.5 text-xs">
@@ -217,7 +217,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
                             href={item.link.startsWith('http') ? item.link : `https://${item.link}`} 
                             target="_blank" 
                             rel="noreferrer"
-                            className="text-blue-600 underline font-mono"
+                            className="text-blue-600 hover:underline font-mono"
                           >
                             {item.link}
                           </a>
@@ -278,7 +278,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {education && education.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -314,7 +314,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {experiences && experiences.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -358,7 +358,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {((trainings && trainings.length > 0) || (certifications && certifications.length > 0)) && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -398,7 +398,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
                               href={item.linkUrl.startsWith('http') ? item.linkUrl : `https://${item.linkUrl}`} 
                               target="_blank" 
                               rel="noreferrer"
-                              className="text-blue-600 underline break-all font-mono"
+                              className="text-blue-600 hover:underline break-all font-mono"
                             >
                               {item.linkUrl}
                             </a>
@@ -433,7 +433,7 @@ export const ExecutiveClassicTemplate: React.FC<TemplateProps> = ({ resume, conf
       {references && references.length > 0 && (
         <div className="space-y-1.5 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1.5 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1.5 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 

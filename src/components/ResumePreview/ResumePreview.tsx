@@ -13,6 +13,7 @@ import {
   Info
 } from 'lucide-react';
 import { ResumeData, StyleConfig, UILanguage } from '../../types';
+import { sanitizeResumeData } from '../../utils/sanitizeResume';
 import { ModernSidebarTemplate } from '../Templates/ModernSidebarTemplate';
 import { MinimalTechTemplate } from '../Templates/MinimalTechTemplate';
 import { ExecutiveClassicTemplate } from '../Templates/ExecutiveClassicTemplate';
@@ -76,71 +77,72 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({
   };
 
   const renderTemplate = () => {
+    const safeResume = sanitizeResumeData(resume);
     switch (config.template) {
       case 'modern-sidebar':
-        return <ModernSidebarTemplate resume={resume} config={config} />;
+        return <ModernSidebarTemplate resume={safeResume} config={config} />;
       case 'minimal-tech':
-        return <MinimalTechTemplate resume={resume} config={config} />;
+        return <MinimalTechTemplate resume={safeResume} config={config} />;
       case 'executive-classic':
-        return <ExecutiveClassicTemplate resume={resume} config={config} />;
+        return <ExecutiveClassicTemplate resume={safeResume} config={config} />;
       case 'creative-modern':
-        return <CreativeModernTemplate resume={resume} config={config} />;
+        return <CreativeModernTemplate resume={safeResume} config={config} />;
       case 'compact-fresher':
-        return <CompactFresherTemplate resume={resume} config={config} />;
+        return <CompactFresherTemplate resume={safeResume} config={config} />;
       case 'infographic-pro':
-        return <InfographicProTemplate resume={resume} config={config} />;
+        return <InfographicProTemplate resume={safeResume} config={config} />;
       case 'berlin-modern':
-        return <BerlinModernTemplate resume={resume} config={config} />;
+        return <BerlinModernTemplate resume={safeResume} config={config} />;
       case 'technical-sqa':
-        return <TechnicalSqaTemplate resume={resume} config={config} />;
+        return <TechnicalSqaTemplate resume={safeResume} config={config} />;
       case 'graphical-banner':
-        return <GraphicalBannerTemplate resume={resume} config={config} />;
+        return <GraphicalBannerTemplate resume={safeResume} config={config} />;
       case 'graphical-modern-grid':
-        return <GraphicalModernGridTemplate resume={resume} config={config} />;
+        return <GraphicalModernGridTemplate resume={safeResume} config={config} />;
       case 'designer-portfolio':
-        return <DesignerPortfolioTemplate resume={resume} config={config} />;
+        return <DesignerPortfolioTemplate resume={safeResume} config={config} />;
       case 'cyber-matrix':
-        return <CyberMatrixTemplate resume={resume} config={config} />;
+        return <CyberMatrixTemplate resume={safeResume} config={config} />;
       case 'swiss-editorial':
-        return <SwissEditorialTemplate resume={resume} config={config} />;
+        return <SwissEditorialTemplate resume={safeResume} config={config} />;
       case 'nordic-clean':
-        return <NordicCleanTemplate resume={resume} config={config} />;
+        return <NordicCleanTemplate resume={safeResume} config={config} />;
       case 'executive-corporate-split':
-        return <ExecutiveCorporateSplitTemplate resume={resume} config={config} />;
+        return <ExecutiveCorporateSplitTemplate resume={safeResume} config={config} />;
       case 'developer-terminal':
-        return <DeveloperTerminalTemplate resume={resume} config={config} />;
+        return <DeveloperTerminalTemplate resume={safeResume} config={config} />;
       case 'tokyo-neo':
-        return <TokyoNeoTemplate resume={resume} config={config} />;
+        return <TokyoNeoTemplate resume={safeResume} config={config} />;
       case 'california-sunny':
-        return <CaliforniaSunnyTemplate resume={resume} config={config} />;
+        return <CaliforniaSunnyTemplate resume={safeResume} config={config} />;
       case 'london-fintech':
-        return <LondonFintechTemplate resume={resume} config={config} />;
+        return <LondonFintechTemplate resume={safeResume} config={config} />;
       case 'architect-blueprint':
-        return <ArchitectBlueprintTemplate resume={resume} config={config} />;
+        return <ArchitectBlueprintTemplate resume={safeResume} config={config} />;
       case 'silicon-minimal':
-        return <SiliconMinimalTemplate resume={resume} config={config} />;
+        return <SiliconMinimalTemplate resume={safeResume} config={config} />;
       case 'aurora-glass':
-        return <AuroraGlassTemplate resume={resume} config={config} />;
+        return <AuroraGlassTemplate resume={safeResume} config={config} />;
       case 'magazine-pro':
-        return <MagazineProTemplate resume={resume} config={config} />;
+        return <MagazineProTemplate resume={safeResume} config={config} />;
       case 'metro-card':
-        return <MetroCardTemplate resume={resume} config={config} />;
+        return <MetroCardTemplate resume={safeResume} config={config} />;
       case 'hybrid-timeline':
-        return <HybridTimelineTemplate resume={resume} config={config} />;
+        return <HybridTimelineTemplate resume={safeResume} config={config} />;
       case 'monochrome-bold':
-        return <MonochromeBoldTemplate resume={resume} config={config} />;
+        return <MonochromeBoldTemplate resume={safeResume} config={config} />;
       case 'quantum-tech':
-        return <QuantumTechTemplate resume={resume} config={config} />;
+        return <QuantumTechTemplate resume={safeResume} config={config} />;
       case 'crest-luxury':
-        return <CrestLuxuryTemplate resume={resume} config={config} />;
+        return <CrestLuxuryTemplate resume={safeResume} config={config} />;
       case 'portfolio-showcase':
-        return <PortfolioShowcaseTemplate resume={resume} config={config} />;
+        return <PortfolioShowcaseTemplate resume={safeResume} config={config} />;
       case 'qa-audit-matrix':
-        return <QaAuditMatrixTemplate resume={resume} config={config} />;
+        return <QaAuditMatrixTemplate resume={safeResume} config={config} />;
       case 'horizon-modern':
-        return <HorizonModernTemplate resume={resume} config={config} />;
+        return <HorizonModernTemplate resume={safeResume} config={config} />;
       default:
-        return <ModernSidebarTemplate resume={resume} config={config} />;
+        return <ModernSidebarTemplate resume={safeResume} config={config} />;
     }
   };
 

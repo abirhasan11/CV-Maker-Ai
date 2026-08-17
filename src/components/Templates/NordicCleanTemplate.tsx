@@ -162,9 +162,9 @@ export const NordicCleanTemplate: React.FC<TemplateProps> = ({ resume, config })
           )}
 
           {/* Training & Extra Activities */}
-          {(trainings.length > 0 || extraActivities.length > 0) && (
+          {((trainings && trainings.length > 0) || (extraActivities && extraActivities.length > 0)) && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-stone-200">
-              {trainings.length > 0 && (
+              {trainings && trainings.length > 0 && (
                 <div className="space-y-1.5">
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-500">Training</h3>
                   {trainings.map((t) => (
@@ -175,7 +175,7 @@ export const NordicCleanTemplate: React.FC<TemplateProps> = ({ resume, config })
                   ))}
                 </div>
               )}
-              {extraActivities.length > 0 && (
+              {extraActivities && extraActivities.length > 0 && (
                 <div className="space-y-1.5">
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-500">Activities</h3>
                   {extraActivities.map((act) => (

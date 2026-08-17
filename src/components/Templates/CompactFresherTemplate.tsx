@@ -100,7 +100,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {personalInfo.summary && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -120,7 +120,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {skills && skills.length > 0 && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -145,7 +145,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {((manualWorks && manualWorks.length > 0) || (automationWorks && automationWorks.length > 0) || (projects && projects.length > 0)) && (
         <div className="space-y-2 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -159,7 +159,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
           {/* Manual Testing */}
           {manualWorks && manualWorks.length > 0 && (
             <div className="space-y-1 pl-1">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-0.5">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-800">
                 Manual Testing
               </div>
               <div className="space-y-1 text-[11px]">
@@ -171,7 +171,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
                       {item.link && (
                         <div className="text-slate-600 pl-2">
                           <span>Link: </span>
-                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 underline font-mono">
+                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-mono">
                             {item.link}
                           </a>
                         </div>
@@ -186,7 +186,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
           {/* Automation Testing */}
           {automationWorks && automationWorks.length > 0 && (
             <div className="space-y-1 pl-1 pt-0.5">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-0.5">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-800">
                 Automation Testing
               </div>
               <div className="space-y-1 text-[11px]">
@@ -198,7 +198,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
                       {item.link && (
                         <div className="text-slate-600 pl-2 text-[10px]">
                           <span>Link: </span>
-                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 underline font-mono">
+                          <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-mono">
                             {item.link}
                           </a>
                         </div>
@@ -218,7 +218,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
                   <div className="flex justify-between items-baseline">
                     <span className="font-bold text-slate-900">{proj.name}</span>
                     {proj.link && (
-                      <a href={proj.link.startsWith('http') ? proj.link : `https://${proj.link}`} target="_blank" rel="noreferrer" className="text-blue-600 underline font-mono text-[10px]">
+                      <a href={proj.link.startsWith('http') ? proj.link : `https://${proj.link}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-mono text-[10px]">
                         {proj.link}
                       </a>
                     )}
@@ -235,7 +235,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {education && education.length > 0 && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -267,7 +267,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {experiences && experiences.length > 0 && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -306,7 +306,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {((trainings && trainings.length > 0) || (certifications && certifications.length > 0)) && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
@@ -325,7 +325,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
                   {item.linkUrl && (
                     <div className="text-slate-600 pl-3">
                       <span>• {item.linkText || 'Link:'} </span>
-                      <a href={item.linkUrl.startsWith('http') ? item.linkUrl : `https://${item.linkUrl}`} target="_blank" rel="noreferrer" className="text-blue-600 underline font-mono">
+                      <a href={item.linkUrl.startsWith('http') ? item.linkUrl : `https://${item.linkUrl}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-mono">
                         {item.linkUrl}
                       </a>
                     </div>
@@ -354,7 +354,7 @@ export const CompactFresherTemplate: React.FC<TemplateProps> = ({ resume, config
       {references && references.length > 0 && (
         <div className="space-y-1 page-break-avoid">
           <div 
-            className="border-b-2 pb-0.5 mb-1 flex items-center justify-between"
+            className="border-b pb-0.5 mb-1 flex items-center justify-between"
             style={{ borderColor: theme.primary }}
           >
             <h3 
