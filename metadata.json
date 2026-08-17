@@ -1,0 +1,6 @@
+{
+  "name": "CV & Resume Maker AI",
+  "description": "An AI-powered CV and Resume Builder with professional templates, ATS scoring, live A4 preview, bilingual English/Bangla support, and 1-click PDF export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
